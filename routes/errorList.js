@@ -48,10 +48,10 @@ function getRealStackLine(sourceMapObj, stackLine) {
     // 符合期望格式
     if (stackLineBlockArr.length >= 3 && _.isNumber(Number(stackLineBlockArr[1])) && _.isNumber(Number(stackLineBlockArr[2]))) {
         let { source, line, column, name } = sourceMapObj.originalPositionFor({
-            line: Number(stackLineBlockArr[1]),
-            column: Number(stackLineBlockArr[2])
+            line: 1,//Number(stackLineBlockArr[1]),
+            column: 2//Number(stackLineBlockArr[2])
         });
-
+        console.log('line',line,column)
         if (source && line && column) {
             return [source, name, line, column].join(":")
         } else {
